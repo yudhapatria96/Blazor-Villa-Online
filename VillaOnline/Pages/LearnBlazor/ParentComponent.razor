@@ -1,0 +1,38 @@
+﻿@page "/ParentComponent"
+
+
+
+<h3 class="text-danger">Parent Child Component</h3>
+
+@*<ChildComponent OnClickBtnMethod="ShowMessage"  Title="This title is passed as parameter from Parent Component">
+        Render Fragement from parent!
+    </ChildComponent>*@
+
+<ChildComponent OnClickBtnMethod="ShowMessage" Title="This title is passed as parameter from Parent Component"
+                MesssasgeForGrandChild="this is a message from Grand Parent">
+    <ChildContent> Render Fragement from parent!</ChildContent>
+    <DangerChildContent>Danger Content from Render Fragment</DangerChildContent>
+</ChildComponent>
+@*<AnotherChildComponent Placeholder="Enter the room from parent" Maxlength="2"></AnotherChildComponent>*@
+@*<AnotherChildComponent InputAttributes="InputAttributesFromParent"></AnotherChildComponent>*@
+<AnotherChildComponent Placeholder="Enter the room from parent"></AnotherChildComponent>
+
+<p><b>@messageText</b></p>
+
+@code {
+
+
+    //    public Dictionary<string, object> InputAttributesFromParent { get; set; } = new Dictionary<string, object>()
+    //{
+    //        {"required", "required" },
+    //        {"placeholder","Enter the room from parent" },
+    //        {"maxlength", 5}
+    //    };
+
+    private string messageText = "";
+
+    private void ShowMessage(MouseEventArgs e)
+    {
+        messageText = "Blazzing text from parent";
+    }
+}
